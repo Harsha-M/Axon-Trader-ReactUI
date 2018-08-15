@@ -1,6 +1,13 @@
+export function getPortfolios() {
+    return {
+        type: "GET_PORTFOLIOS",
+        payload: portfolios
+    }
+}
 
-const initialState = {
-   items:  [
+
+export default function portfolios() {
+    return [
         {
             id: 1,
             portfolioName: 'Buyer 1',
@@ -58,15 +65,4 @@ const initialState = {
             ]
         }
     ]
-}
-    
-
-export default function (state = initialState, action) {
-    switch (action.type) {
-        case "GET_PORTFOLIOS":
-            return action.payload;
-        case "PORTFOLIO_SELECTED":
-            return Object.assign({}, state, {activePortfolio: action.index});
-    }
-    return state;
 }

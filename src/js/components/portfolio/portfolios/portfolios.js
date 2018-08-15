@@ -1,12 +1,12 @@
 
 import React, { Component } from 'react';
-import PortfolioList from '../../containers/portfolio-list';
-import store, { Provider } from 'react-redux';
+import PortfolioList from '../../../containers/portfolio-list';
+import styles from './portfolios.scss';
 class Portfolio extends Component {
 
     render() {
         return (
-            <div className="portfolio-container">
+            <div className={styles.portfolioContainer}>
                 <h1>All portfolios</h1>
                 <span>Choose the portfolio to watch the details for</span>
                 {/* <Provider store={store}> */}

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import PortfolioList from '../../containers/portfolio-list';
 
 class Landing extends Component {
 
@@ -14,7 +13,6 @@ class Landing extends Component {
 
                 <Link to={'/Dashboard'}>dashboard</Link>
                 <ul><li><Link to={'/Login'}>Login</Link></li></ul>
-                <PortfolioList/>
             </div>
         </div>
     }
