@@ -8,7 +8,7 @@ import Landing from './components/landing/landing';
 import Dashboard from './components/dashboard/dashboard';
 import Portfolio from './components/portfolio/portfolios/portfolios';
 import PortfolioDetail from './components/portfolio/portfolio-detail/portfolio_detail';
-import Companies from './components/companies/companies';
+import Companies from './containers/CompanyListContainer';
 import Data from './components/data/data';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import rootReducer from './reducers/index';
