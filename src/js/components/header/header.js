@@ -10,7 +10,7 @@ class Header extends Component {
                 <Link className={styles.navbarItem} to={'/Landing'}>Axon Trader</Link>
                 <Link className={styles.navbarItem} to={'/Landing'}>Home</Link>
                 <Link className={styles.navbarItem} to={'/Dashboard'}>Dashboard</Link>
-                <Link className={styles.navbarItem} to={'/Companies'}>Companies</Link>
+                <Link className={styles.navbarItem} to={'/companies'}>Companies</Link>
                 <Link className={styles.navbarItem} to={'/Data'}>Data</Link>
                 <Link className={styles.navbarItem} to={'/Portfolio'}>Portfolio</Link>
                 <form>

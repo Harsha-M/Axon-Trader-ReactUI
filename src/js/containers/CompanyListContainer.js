@@ -6,32 +6,33 @@ import * as companyActionCreators from '../actions/company'
 
 class CompanyListContainer extends Component {
 
-    componentDidMount() {
-        this.props.companyActions.fetchCompanyList();
-    }
+  componentDidMount() {
+    this.props.companyActions.fetchCompanyList();
+    console.log(this.props);
+  }
 
-    render() {
-        return (
-            <div className="companies-container">
-                <h1>All stock items<small> Choose the stock to start trading with</small></h1>
-                <div>
-                    <CompanyList companies={this.props.companies} />
-                </div>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="companies-container">
+        <h1>All stock items<small> Choose the stock to start trading with</small></h1>
+        <div>
+          <CompanyList companies={this.props.companies.companyList} />
+        </div>
+      </div>
+    );
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        companyActions: bindActionCreators(companyActionCreators, dispatch)
-    }
+  return {
+    companyActions: bindActionCreators(companyActionCreators, dispatch)
+  }
 }
 
 const mapStateToProps = state => {
-    return {
-        companies: state.companies
-    }
+  return {
+    companies: state.companies
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompanyListContainer);
