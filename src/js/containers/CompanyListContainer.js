@@ -8,13 +8,14 @@ class CompanyListContainer extends Component {
 
   componentDidMount() {
     this.props.companyActions.fetchCompanyList();
-    console.log(this.props);
   }
 
   render() {
     return (
-      <div className="companies-container">
-        <h1>All stock items<small> Choose the stock to start trading with</small></h1>
+      <div className="container">
+        <div className="page-header">
+          <h1>All stock items<small> Choose the stock to start trading with</small></h1>
+        </div>
         <div>
           <CompanyList companies={this.props.companies.companyList} />
         </div>

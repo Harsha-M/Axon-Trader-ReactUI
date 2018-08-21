@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import classes from './styles.scss';
+// import classes from './styles.scss';
 
 class CompanyList extends Component {
   render() {
@@ -16,7 +16,7 @@ class CompanyList extends Component {
     }
 
     return (
-      <table className={classes.companyTable}>
+      <table className="table">
         <thead>
           <tr>
             <th>Name</th>

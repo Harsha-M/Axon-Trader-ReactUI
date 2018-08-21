@@ -12,6 +12,7 @@ const initialState = {
     items: []
   },
   activeCompany: {
+    isFetching: true,
     data: {}
   }
 }
@@ -100,16 +101,37 @@ staeOfTheCompanyReducer = {
     },
 
     activeCompany: {
-        isFetching: boolean
-        error: {
-            message: string,
-            statusCode: number
-        }
-        data: {
-            name:
-            id:
-            ....
-        }
+      isFetching: boolean
+      error: {
+          message: string,
+          statusCode: number
+      }
+      data: {
+        id: id,
+        name: "Bp",
+        value: "15000",
+        shares: "100000",
+        sellOrders: [
+          {
+            count: "10",
+            price: "200",
+            remaining: "45"
+          }
+        ],
+        buyOrders: [
+          {
+            count: "20",
+            price: "199",
+            remaining: "20"
+          }
+        ],
+        executedTrades: [
+          {
+            count: "20",
+            price: "198"
+          }
+        ]
+      }
     }
 
 

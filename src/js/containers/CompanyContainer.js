@@ -15,7 +15,7 @@ class CompanyContainer extends Component {
   render() {
     const { companies } = this.props;
     return (
-      <div className="company-container">
+      <div className="container">
         <Company company={companies.activeCompany} />
       </div>
     );
