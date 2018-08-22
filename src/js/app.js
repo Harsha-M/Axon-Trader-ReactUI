@@ -22,7 +22,7 @@ import {
 } from "react-router-redux";
 
 import '../css/style.scss';
-
+import styles from './app.scss';
 const history = createHistory();
 const middleware = routerMiddleware(history);
 
@@ -36,21 +36,23 @@ export default class App extends Component {
   render() {
     return (
       <ConnectedRouter history={history}>
-    {/* <Provider store={store}> */}
-      <div>
-          <Header/>
-          <Switch>
-            <Route exact path='/' component={Landing} /> 
-            <Route exact path='/Login' component={Login} />
-            <Route exact path='/Landing' component={Landing} />
-            <Route exact path='/Dashboard' component={Dashboard} />
-            <Route exact path='/Companies' component={Companies} />
-            <Route exact path='/Data' component={Data} />
-            <Route exact path='/Portfolio' component={Portfolio} />
-            <Route exact path='/Portfolio_Detail' component={PortfolioDetail} />
-          </Switch>
+        {/* <Provider store={store}> */}
+        <div>
+          <Header />
+          <div className={styles.appBody}>
+            <Switch>
+              <Route exact path='/' component={Landing} />
+              <Route exact path='/Login' component={Login} />
+              <Route exact path='/Landing' component={Landing} />
+              <Route exact path='/Dashboard' component={Dashboard} />
+              <Route exact path='/Companies' component={Companies} />
+              <Route exact path='/Data' component={Data} />
+              <Route exact path='/Portfolio' component={Portfolio} />
+              <Route exact path='/Portfolio_Detail/:id' component={PortfolioDetail} />
+            </Switch>
           </div>
-          {/* </Provider> */}
+        </div>
+        {/* </Provider> */}
       </ConnectedRouter >
     );
   }

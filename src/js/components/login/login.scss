@@ -1,3 +1,21 @@
 .loginContainer {
     margin-top: 30px;
+    text-align: center;
+
+    h3 {
+        margin-top: 50px;
+    }
+}
+
+.loginForm {
+    display: inline-block;
+
+    label {
+        float: left;
+    }
+
+    button {
+        margin-left: -15px;
+        width: 150px;
+    }
 }

@@ -1,21 +1,29 @@
 
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect, } from 'react-redux';
 import { Table } from 'react-bootstrap';
 import { selectPortfolio } from '../actions/action_select_portfolio';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
+import { getPortfolios } from '../actions/action_get_portfolios';
 
 class PortfoliosList extends Component {
+
+    componentDidMount() {
+        this.props.getPortfolios();
+    }
+
     renderList() {
-        if(this.props.portfolios) {
-            return this.props.portfolios.map((portfolio, i) => {
+        if(this.props.portfolios.items) {
+            return this.props.portfolios.items.map((portfolio, i) => {
                 return (
                     <tr key={portfolio.id}>
                         <td>{portfolio.portfolioName}</td>
                         <td>{portfolio.moneyAvailable}</td>
                         <td>{formatItemsAvailable(portfolio.itemsAvailable)}</td>
-                        <td onClick={() => this.props.selectPortfolio(i)}>details</td>
+                        <td>
+                            <Link to={`/Portfolio_Detail/${portfolio.id}`}>details</Link>
+                        </td>
                     </tr>
                 )
             });
@@ -23,6 +31,11 @@ class PortfoliosList extends Component {
     }
 
     render() {
+
+        if (this.props.portfolios.isFetching) {
+            return <h1> Loading </h1>
+        }
+
         return (
             <Table striped condensed hover>
                 <thead>
@@ -53,12 +66,12 @@ function sortTable() {
 
 function mapStateToProps(state) {
     return {
-        portfolios: state.portfolios.items
+        portfolios: state.portfolios.portfolios
     };
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({selectPortfolio: selectPortfolio}, dispatch);
+    return bindActionCreators({getPortfolios: getPortfolios}, dispatch);
 }
 
 function formatItemsAvailable(cell) {
