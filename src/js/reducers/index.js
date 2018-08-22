@@ -1,10 +1,14 @@
 import { combineReducers } from 'redux';
-import PortfoliosReducer from './reducer_portfolios';
-import UserReducer from './reducer_user';
+import userReducer from './user';
+import portfoliosReducer from './portfolio';
+import companyReducer from './company';
+
 
 const rootReducer = combineReducers({
-    portfolios: PortfoliosReducer,
-    profile: UserReducer
+    portfolios: portfoliosReducer,
+    profile: userReducer,
+    companies: companyReducer
+
 });
 
 export default rootReducer;

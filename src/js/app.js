@@ -8,8 +8,9 @@ import Landing from './components/landing/landing';
 import Dashboard from './components/dashboard/dashboard';
 import Portfolio from './components/portfolio/portfolios/portfolios';
 import PortfolioDetail from './components/portfolio/portfolio-detail/portfolio_detail';
-import Companies from './components/companies/companies';
+import Companies from './containers/CompanyListContainer';
 import Data from './components/data/data';
+import CompanyContainer from './containers/CompanyContainer';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import rootReducer from './reducers/index';
 import thunk from 'redux-thunk';
@@ -36,23 +37,22 @@ export default class App extends Component {
   render() {
     return (
       <ConnectedRouter history={history}>
-        {/* <Provider store={store}> */}
-        <div>
-          <Header />
+        <Provider store={store}>
           <div className={styles.appBody}>
+            <Header />
             <Switch>
               <Route exact path='/' component={Landing} />
               <Route exact path='/Login' component={Login} />
               <Route exact path='/Landing' component={Landing} />
               <Route exact path='/Dashboard' component={Dashboard} />
-              <Route exact path='/Companies' component={Companies} />
+              <Route exact path='/companies' component={Companies} />
+              <Route exact path='/companies/:id' component={CompanyContainer} />
               <Route exact path='/Data' component={Data} />
               <Route exact path='/Portfolio' component={Portfolio} />
               <Route exact path='/Portfolio_Detail/:id' component={PortfolioDetail} />
             </Switch>
           </div>
-        </div>
-        {/* </Provider> */}
+        </Provider>
       </ConnectedRouter >
     );
   }
