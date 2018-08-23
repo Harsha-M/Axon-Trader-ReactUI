@@ -9,6 +9,7 @@ import Dashboard from './components/dashboard/dashboard';
 import Portfolio from './components/portfolio/portfolios/portfolios';
 import PortfolioDetail from './components/portfolio/portfolio-detail/portfolio_detail';
 import Companies from './containers/CompanyListContainer';
+import PrivateRoute from './containers/PrivateRoute';
 import Data from './components/data/data';
 import CompanyContainer from './containers/CompanyContainer';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
@@ -44,7 +45,8 @@ export default class App extends Component {
               <Route exact path='/' component={Landing} />
               <Route exact path='/Login' component={Login} />
               <Route exact path='/Landing' component={Landing} />
-              <Route exact path='/Dashboard' component={Dashboard} />
+              {/* {<Route exact path='/Dashboard' component={Dashboard} />} */}
+              <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <Route exact path='/companies' component={Companies} />
               <Route exact path='/companies/:id' component={CompanyContainer} />
               <Route exact path='/Data' component={Data} />
