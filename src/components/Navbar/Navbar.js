@@ -35,19 +35,19 @@ class Header extends Component {
         const { username, password } = this.state;
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <Link className="navbar-brand" to={'/Landing'}>Axon Trader</Link>
+                <Link className="navbar-brand" to="/">Axon Trader</Link>
                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li className="nav-item">
-                        <Link className="nav-link" to={'/Landing'}>HOME</Link>
+                        <Link className="nav-link" to="/">HOME</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to={'/Dashboard'}>DASHBOARD</Link>
+                        <Link className="nav-link" to="/dashboard">DASHBOARD</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to={'/companies'}>COMPANIES</Link>
+                        <Link className="nav-link" to="/companies">COMPANIES</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to={'/Portfolio'}>PORTFOLIO</Link>
+                        <Link className="nav-link" to="/portfolio">PORTFOLIO</Link>
                     </li>
                 </ul>
                 {!this.props.successfullLogin ?

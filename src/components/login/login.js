@@ -33,7 +33,7 @@ class Login extends Component {
 
     render() {
         const { username, password } = this.state;
-        return <div className={styles.loginContainer}>
+        return <div className="container">
             <span>You need to login to access this part of the site. Please provided your username and password
                 Login to get access </span>
             <h3>Login to get access</h3>

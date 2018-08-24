@@ -7,7 +7,7 @@ import { ConnectedRouter, routerMiddleware, } from "react-router-redux";
 import { Route, Switch } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import Login from '../components/login/login';
-import Landing from '../components/landing/landing';
+import Home from '../components/Home/Home';
 import Dashboard from '../components/dashboard/dashboard';
 import Portfolio from '../components/portfolio/portfolios/portfolios';
 import PortfolioDetail from '../components/portfolio/portfolio-detail/portfolio_detail';
@@ -31,17 +31,15 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <ConnectedRouter history={history}>
-          <div className="container-fluid">
+          <div>
             <Navbar />
             <Switch>
-              <Route exact path='/' component={Landing} />
-              <Route exact path='/Login' component={Login} />
-              <Route exact path='/Landing' component={Landing} />
+              <Route exact path='/' component={Home} />
+              <Route exact path='/login' component={Login} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <Route exact path='/companies' component={Companies} />
               <Route exact path='/companies/:id' component={CompanyContainer} />
-              <Route exact path='/Data' component={Data} />
-              <Route exact path='/Portfolio' component={Portfolio} />
+              <Route exact path='/portfolio' component={Portfolio} />
               <Route exact path='/Portfolio_Detail/:id' component={PortfolioDetail} />
             </Switch>
           </div>

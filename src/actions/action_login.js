@@ -8,7 +8,7 @@ export function performLogin(username, password) {
         if (registeredUsers.indexOf(username) > -1) {
             dispatch(loginAction(username, password));
             dispatch(successLogin());
-            dispatch(push('/Dashboard'));
+            dispatch(push('/dashboard'));
         }
     }
 }
