@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import createHistory from "history/createBrowserHistory";
 import { ConnectedRouter, routerMiddleware, } from "react-router-redux";
 import { Route, Switch } from 'react-router-dom';
-import Header from '../components/header/header';
+import Navbar from '../components/Navbar/Navbar';
 import Login from '../components/login/login';
 import Landing from '../components/landing/landing';
 import Dashboard from '../components/dashboard/dashboard';
@@ -32,7 +32,7 @@ export default class App extends Component {
       <Provider store={store}>
         <ConnectedRouter history={history}>
           <div className="container-fluid">
-            <Header />
+            <Navbar />
             <Switch>
               <Route exact path='/' component={Landing} />
               <Route exact path='/Login' component={Login} />
