@@ -1,4 +1,4 @@
-import { Portfolios } from '../../mocks/portfolios';
+import { Portfolios } from '../mocks/portfolios';
 
 export function getPortfolios() {
     return {

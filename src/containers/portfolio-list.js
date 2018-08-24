@@ -112,7 +112,7 @@ class PortfoliosList extends Component {
     var allData = ' ';
     for (var i = 0; i < cell.length; i++) {
       var data = cell[i];
-      if (i == 0) allData += data.name;
+      if (i === 0) allData += data.name;
       else allData += ", " + data.name;
     };
     return allData;

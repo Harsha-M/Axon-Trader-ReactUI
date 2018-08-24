@@ -17,7 +17,6 @@ import Data from '../components/data/data';
 import CompanyContainer from '../containers/CompanyContainer';
 import rootReducer from '../reducers';
 
-
 const history = createHistory();
 const middleware = routerMiddleware(history);
 
