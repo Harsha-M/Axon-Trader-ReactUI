@@ -6,14 +6,13 @@ import createHistory from "history/createBrowserHistory";
 import { ConnectedRouter, routerMiddleware, } from "react-router-redux";
 import { Route, Switch } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
-import Login from '../components/login/login';
+import Login from '../components/Login/Login';
 import Home from '../components/Home/Home';
-import Dashboard from '../components/dashboard/dashboard';
-import Portfolio from '../components/portfolio/portfolios/portfolios';
-import PortfolioDetail from '../components/portfolio/portfolio-detail/portfolio_detail';
+import Dashboard from '../components/Dashboard/Dashboard';
+import Portfolio from '../components/Portfolios/Portfolio';
+import Portfolios from '../components/Portfolios/Portfolios';
 import Companies from '../containers/CompanyListContainer';
 import PrivateRoute from '../containers/PrivateRoute';
-import Data from '../components/data/data';
 import CompanyContainer from '../containers/CompanyContainer';
 import rootReducer from '../reducers';
 
@@ -39,8 +38,8 @@ export default class App extends Component {
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <Route exact path='/companies' component={Companies} />
               <Route exact path='/companies/:id' component={CompanyContainer} />
-              <Route exact path='/portfolio' component={Portfolio} />
-              <Route exact path='/Portfolio_Detail/:id' component={PortfolioDetail} />
+              <Route exact path='/portfolios' component={Portfolios} />
+              <Route exact path='/portfolios/:id' component={Portfolio} />
             </Switch>
           </div>
         </ConnectedRouter >

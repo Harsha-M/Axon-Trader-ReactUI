@@ -137,7 +137,7 @@ class PortfoliosList extends Component {
           <td>{portfolio.moneyAvailable}</td>
           <td>{this.formatItemsAvailable(portfolio.itemsAvailable)}</td>
           <td>
-            <Link to={`/Portfolio_Detail/${portfolio.id}`}>details</Link>
+            <Link to={`/portfolios/${portfolio.id}`}>details</Link>
           </td>
         </tr>
       )

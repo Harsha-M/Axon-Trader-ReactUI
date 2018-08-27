@@ -47,7 +47,7 @@ class Header extends Component {
                         <Link className="nav-link" to="/companies">COMPANIES</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/portfolio">PORTFOLIO</Link>
+                        <Link className="nav-link" to="/portfolios">PORTFOLIO</Link>
                     </li>
                 </ul>
                 {!this.props.successfullLogin ?

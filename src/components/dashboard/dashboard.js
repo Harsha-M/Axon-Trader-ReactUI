@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import styles from './dashboard.scss';
 import { Table } from 'react-bootstrap';
 import * as AppConstants from '../../constants';
+
 class Dashboard extends Component {
 
     constructor(props) {
@@ -12,7 +13,7 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div className={styles.dashboardContainer}>
+            <div className="container">
                 <div><h1>Dashboard</h1>
                     <div>Your overview of everything you have and want to know</div>
                 </div>
