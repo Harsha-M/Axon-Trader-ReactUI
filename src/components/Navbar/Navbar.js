@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './header.scss';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { performLogin, performLogout } from '../../actions/auth';

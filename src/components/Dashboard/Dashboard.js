@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import styles from './dashboard.scss';
 import { Table } from 'react-bootstrap';
-import * as AppConstants from '../../constants';
 
 export default class Dashboard extends Component {
     render() {
-        console.log("dashboard props", this.props);
         const { data } = this.props.dashboard;
         return (
                 <div>

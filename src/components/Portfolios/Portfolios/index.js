@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import PortfolioList from '../../../containers/portfolio-list';
-import styles from './portfolios.scss';
 
 class Portfolios extends Component {
     render() {
