@@ -4,19 +4,11 @@ import styles from './dashboard.scss';
 import { Table } from 'react-bootstrap';
 import * as AppConstants from '../../constants';
 
-class Dashboard extends Component {
-
-    constructor(props) {
-        super(props);
-        this.props = props;
-    }
-
+export default class Dashboard extends Component {
     render() {
+        console.log("dashboard props", this.props);
+        const { data } = this.props.dashboard;
         return (
-            <div className="container">
-                <div><h1>Dashboard</h1>
-                    <div>Your overview of everything you have and want to know</div>
-                </div>
                 <div>
                     <div className={styles.dashboardDetails}>
                         <div className="col-sm-6">
@@ -29,11 +21,11 @@ class Dashboard extends Component {
                                 <tbody>
                                     <tr key='1'>
                                         <td>Available</td>
-                                        <td>{this.props.user.moneyAvailable}</td>
+                                        <td>{data.money.available}</td>
                                     </tr>
                                     <tr key='2'>
                                         <td>Reserved</td>
-                                        <td>{this.props.user.reserved}</td>
+                                        <td>{data.money.reserved}</td>
                                     </tr>
                                 </tbody>
                             </Table>
@@ -46,7 +38,7 @@ class Dashboard extends Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {renderItemsOfType(this.props.user.itemsAvailable)}
+                                    {renderItemsOfType(data.tradeItems)}
                                 </tbody>
                             </Table>
                             <div className={styles.tableTile}>Trade items reserved</div>
@@ -58,7 +50,7 @@ class Dashboard extends Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {renderItemsOfType(this.props.user.reservedItems)}
+                                    {renderItemsOfType(data.tradeItemsReserved)}
                                 </tbody>
                             </Table>
                         </div>
@@ -79,13 +71,12 @@ class Dashboard extends Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {renderTransactions(this.props.user.transactions)}
+                                    {renderTransactions(data.transactions)}
                                 </tbody>
                             </Table>
                         </div>
                     </div>
                 </div>
-            </div>
         )
     }
 }
@@ -95,7 +86,7 @@ function renderItemsOfType(items) {
             return (
                 <tr key={i}>
                     <td> {item.name}</td>
-                    <td> {item.count}</td>
+                    <td> {item.amount}</td>
                 </tr>
             )
         });
@@ -115,11 +106,3 @@ function renderTransactions(transactions) {
         )
     });
 }
-
-function matchStateToProps(state) {
-    return {
-        user: state.profile.user
-    };
-}
-
-export default connect(matchStateToProps)(Dashboard);

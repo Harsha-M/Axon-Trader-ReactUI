@@ -8,7 +8,7 @@ import { Route, Switch } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import Login from '../components/Login/Login';
 import Home from '../components/Home/Home';
-import Dashboard from '../components/Dashboard/Dashboard';
+import DashboardContainer from '../containers/DashboardContainer';
 import Portfolio from '../components/Portfolios/Portfolio';
 import Portfolios from '../components/Portfolios/Portfolios';
 import Companies from '../containers/CompanyListContainer';
@@ -35,7 +35,7 @@ export default class App extends Component {
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/login' component={Login} />
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/dashboard" component={DashboardContainer} />
               <Route exact path='/companies' component={Companies} />
               <Route exact path='/companies/:id' component={CompanyContainer} />
               <Route exact path='/portfolios' component={Portfolios} />
