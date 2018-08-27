@@ -4,7 +4,7 @@ import {
   AUTHENTICATION_SUCCESS,
   AUTHENTICATION_FAILURE,
   PERFORM_LOGOUT
-} from '../constants/actions';
+} from '../constants/authActions';
 
 const registeredUsers = ["buyer1", "buyer2", "buyer3", "buyer4", "buyer5", "buyer6"];
 

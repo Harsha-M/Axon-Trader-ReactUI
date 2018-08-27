@@ -3,7 +3,7 @@ import {
   AUTHENTICATION_SUCCESS,
   AUTHENTICATION_FAILURE,
   PERFORM_LOGOUT
-} from '../constants/actions';
+} from '../constants/authActions';
 
 const initialState = {
   isFetching: false,
