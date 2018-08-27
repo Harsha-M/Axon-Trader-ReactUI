@@ -63,14 +63,14 @@ import {
 // }
 
 
-const defaultState = {
+const initialState = {
     isFetching: false,
     isAuthenticated: false,
     error: null
 }
 
 
-export default function (state = defaultState, action) {
+export default function (state = initialState, action) {
     switch (action.type) {
         case AUTHENTICATION_REQUEST:
             return {
