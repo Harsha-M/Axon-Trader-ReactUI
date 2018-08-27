@@ -55,7 +55,12 @@ class Header extends Component {
                         <input type="text" className="form-control mr-sm-2" placeholder="Username" name="username" value={username} onChange={this.handleChange} />
                         <input type="password" className="form-control mr-sm-2" name="password" placeholder="Password" value={password} onChange={this.handleChange} />
                         <button type="submit" value="Login" className="btn btn-outline-success my-2 my-sm-0">Login</button>
-                    </form> : <div className={styles.logout} onClick={this.props.performLogOut}><span>{this.props.loggedInUser.portfolioName}</span> LogOut </div>
+                    </form> : <div>
+                    <span className="nav-item">{this.props.loggedInUser.portfolioName}&nbsp; </span>
+                    <button 
+                        onClick={this.props.performLogOut}
+                        className="btn btn btn-outline-danger my-2 my-sm-0">Logout</button>
+                    </div>
                 }
             </nav>
         )
