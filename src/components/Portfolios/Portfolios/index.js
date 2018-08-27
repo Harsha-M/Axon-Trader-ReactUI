@@ -2,19 +2,17 @@
 import React, { Component } from 'react';
 import PortfolioList from '../../../containers/portfolio-list';
 import styles from './portfolios.scss';
-class Portfolio extends Component {
 
+class Portfolios extends Component {
     render() {
         return (
-            <div className={styles.portfolioContainer}>
+            <div className="container">
                 <h1>All portfolios</h1>
                 <span>Choose the portfolio to watch the details for</span>
-                {/* <Provider store={store}> */}
-                    <PortfolioList/>
-                {/* </Provider> */}
+                <PortfolioList />
             </div>
         )
     }
 }
 
-export default Portfolio;
+export default Portfolios;

@@ -112,7 +112,7 @@ class PortfoliosList extends Component {
     var allData = ' ';
     for (var i = 0; i < cell.length; i++) {
       var data = cell[i];
-      if (i == 0) allData += data.name;
+      if (i === 0) allData += data.name;
       else allData += ", " + data.name;
     };
     return allData;
@@ -137,7 +137,7 @@ class PortfoliosList extends Component {
           <td>{portfolio.moneyAvailable}</td>
           <td>{this.formatItemsAvailable(portfolio.itemsAvailable)}</td>
           <td>
-            <Link to={`/Portfolio_Detail/${portfolio.id}`}>details</Link>
+            <Link to={`/portfolios/${portfolio.id}`}>details</Link>
           </td>
         </tr>
       )

@@ -6,8 +6,9 @@ const PrivateRoute = ({component: ComposedComponent, ...rest}) => {
 
   class Authentication extends Component {
 
-    // redirect if not authenticated; otherwise, return the component imputted into <PrivateRoute />
+    // redirect if not authenticated; otherwise, return the component passed into <PrivateRoute />
     handleRender(props) {
+      console.log("redirect")
       if (!this.props.authenticated) {
         return <Redirect to="/login"/>
       } else {

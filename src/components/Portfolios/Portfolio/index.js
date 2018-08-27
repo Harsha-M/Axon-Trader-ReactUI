@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { addAmountToCurrentAmount, getPortfolioById, addMoreItemsToCurrentProfile } from '../../../actions/action_select_portfolio';
 import { bindActionCreators } from 'redux';
 
-class PortfolioDetail extends Component {
+class Prtfolio extends Component {
 
     constructor(props) {
         super(props);
@@ -105,4 +105,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(PortfolioDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(Prtfolio);
