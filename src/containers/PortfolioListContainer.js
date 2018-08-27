@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { getPortfolios } from '../actions/action_get_portfolios';
 
-class PortfoliosList extends Component {
+class PortfolioList extends Component {
 
   constructor(props) {
     super(props);
@@ -193,4 +193,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ getPortfolios: getPortfolios }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PortfoliosList);
+export default connect(mapStateToProps, mapDispatchToProps)(PortfolioList);

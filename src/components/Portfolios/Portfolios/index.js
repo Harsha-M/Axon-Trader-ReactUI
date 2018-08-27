@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import PortfolioList from '../../../containers/portfolio-list';
+import PortfolioListContainer from '../../../containers/PortfolioListContainer';
 
 class Portfolios extends Component {
     render() {
@@ -8,7 +8,7 @@ class Portfolios extends Component {
             <div className="container">
                 <h1>All portfolios</h1>
                 <span>Choose the portfolio to watch the details for</span>
-                <PortfolioList />
+                <PortfolioListContainer />
             </div>
         )
     }
