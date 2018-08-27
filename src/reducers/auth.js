@@ -5,70 +5,11 @@ import {
     PERFORM_LOGOUT
   } from '../constants/actions';
 
-// const defaultUserState = {
-//     user:
-//     {
-//         id: 1,
-//         portfolioName: 'Buyer 99',
-//         moneyAvailable: 10000,
-//         reserved: 720,
-//         itemsAvailable: [
-//             {
-//                 name: 'Shell',
-//                 count: 20
-//             },
-//             {
-//                 name: 'BP',
-//                 count: 20
-//             },
-//             {
-//                 name: 'Apple',
-//                 count: 10
-//             }
-//         ],
-//         reservedItems: [
-//             {
-//                 name: 'Shell',
-//                 count: 20
-//             },
-//             {
-//                 name: 'BP',
-//                 count: 20
-//             },
-//             {
-//                 name: 'Apple',
-//                 count: 10
-//             }
-//         ],
-//         transactions: [
-//             {
-//                 company: 'Shell',
-//                 type: 'BUY',
-//                 itemsCount: 10,
-//                 price: 40,
-//                 executedCount: 0,
-//                 state: 'CONFIRMED'
-//             },
-//             {
-//                 company: 'BP',
-//                 type: 'SELL',
-//                 itemsCount: 20,
-//                 price: 10,
-//                 executedCount: 30,
-//                 state: 'SELL'
-//             }
-//         ]
-//     },
-//     successfullLogin: false
-// }
-
-
 const initialState = {
     isFetching: false,
     isAuthenticated: false,
     error: null
 }
-
 
 export default function (state = initialState, action) {
     switch (action.type) {
