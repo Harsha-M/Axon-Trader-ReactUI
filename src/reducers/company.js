@@ -5,7 +5,7 @@ import {
   FETCH_COMPANY_REQUEST,
   FETCH_COMPANY_SUCCESS,
   FETCH_COMPANY_FAILURE
-} from '../constants/actions';
+} from '../constants/companyActions';
 
 const initialState = {
   companyList: {
