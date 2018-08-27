@@ -2,7 +2,7 @@ import {
   FETCH_DASHBOARD_REQUEST,
   FETCH_DASHBOARD_SUCCESS,
   FETCH_DASHBOARD_FAILURE,
-} from '../constants/actions';
+} from '../constants/dashboardActions';
 
 const initialState = {
   isFetching: false,
