@@ -51,7 +51,7 @@ class Header extends Component {
                         <Link className="nav-link" to="/portfolios">PORTFOLIO</Link>
                     </li>
                 </ul>
-                {!this.props.successfullLogin ?
+                {!this.props.isAuthenticated ?
                     <form name="form" onSubmit={this.handleSubmit} className="form-inline my-2 my-lg-0">
                         <input type="text" className="form-control mr-sm-2" placeholder="Username" name="username" value={username} onChange={this.handleChange} />
                         <input type="password" className="form-control mr-sm-2" name="password" placeholder="Password" value={password} onChange={this.handleChange} />
