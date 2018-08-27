@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './login.scss';
 import { Link } from 'react-router-dom';
-import { performLogin } from '../../actions/action_login';
+import { performLogin } from '../../actions/auth';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 

@@ -23,7 +23,7 @@ const PrivateRoute = ({component: ComposedComponent, ...rest}) => {
   }
 
   function mapStateToProps(state) {
-    return {authenticated: state.profile.successfullLogin};
+    return {authenticated: state.auth.isAuthenticated};
   }
 
   const AuthenticationContainer = connect(mapStateToProps)(Authentication)

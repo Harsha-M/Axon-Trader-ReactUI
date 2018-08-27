@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './header.scss';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { performLogin, logOutAction } from '../../actions/action_login';
+import { performLogin, performLogout } from '../../actions/auth';
 
 class Header extends Component {
 
@@ -33,6 +33,7 @@ class Header extends Component {
 
     render() {
         const { username, password } = this.state;
+        const { user, performLogout } = this.props;
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <Link className="navbar-brand" to="/">Axon Trader</Link>
@@ -56,9 +57,9 @@ class Header extends Component {
                         <input type="password" className="form-control mr-sm-2" name="password" placeholder="Password" value={password} onChange={this.handleChange} />
                         <button type="submit" value="Login" className="btn btn-outline-success my-2 my-sm-0">Login</button>
                     </form> : <div>
-                    <span className="nav-item">{this.props.loggedInUser.portfolioName}&nbsp; </span>
+                    <span className="nav-item">{user.firstName} {user.lastName}&nbsp; </span>
                     <button 
-                        onClick={this.props.performLogOut}
+                        onClick={performLogout}
                         className="btn btn btn-outline-danger my-2 my-sm-0">Logout</button>
                     </div>
                 }
@@ -69,14 +70,13 @@ class Header extends Component {
 
 function matchStateToProps(state) {
     return {
-        loggedInUser: state.profile.user,
-        successfullLogin: state.profile.successfullLogin
+        isAuthenticated: state.auth.isAuthenticated,
+        user: state.auth.user
     };
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ performLogin: performLogin, performLogOut: logOutAction }, dispatch);
+    return bindActionCreators({ performLogin: performLogin, performLogout: performLogout }, dispatch);
 }
-
 
 export default connect(matchStateToProps, mapDispatchToProps)(Header);

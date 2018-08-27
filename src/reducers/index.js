@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import userReducer from './user';
+import authReducer from './auth';
 import portfoliosReducer from './portfolio';
 import companyReducer from './company';
 
 
 const rootReducer = combineReducers({
     portfolios: portfoliosReducer,
-    profile: userReducer,
+    auth: authReducer,
     companies: companyReducer
 
 });
