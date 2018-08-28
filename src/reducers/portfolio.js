@@ -4,9 +4,10 @@ import {
   FETCH_PORTFOLIO_LIST_FAILURE,
   FETCH_PORTFOLIO_REQUEST,
   FETCH_PORTFOLIO_SUCCESS,
-  FETCH_PORTFOLIO_FAILURE
+  FETCH_PORTFOLIO_FAILURE,
+  ADD_MONEY,
+  ADD_ITEMS
 } from '../constants/portfolioActions';
-
 
 const initialState = {
   portfolios: {
@@ -75,30 +76,39 @@ export default function (state = initialState, action) {
         }
       }
 
-    case "PERFORM_LOGIN":
-      return Object.assign({}, state, { loggedInUser: action.user });
-    case "LOGIN_SUCCESS":
-      return Object.assign({}, state, { successfullLogin: action.isLoginSuccess });
-    case "PERFORM_LOGOUT":
-      return Object.assign({}, state, { successfullLogin: action.isLoginSuccess });
-    case "ADD_AMOUNT": {
+    case ADD_MONEY: {
       const moneyAvailable = state.activePortfolio.data.moneyAvailable + parseInt(action.value);
       const currentActivePortfolioData = state.activePortfolio.data;
-      return Object.assign({}, state, { activePortfolio: { data: Object.assign({}, currentActivePortfolioData, { moneyAvailable: moneyAvailable }) } });
+      // return Object.assign({}, state, { activePortfolio: { data: Object.assign({}, currentActivePortfolioData, { moneyAvailable: moneyAvailable }) } });
+
+      return {
+        ...state,
+        activePortfolio : {
+          data: {
+            ...currentActivePortfolioData,
+            moneyAvailable: moneyAvailable
+          }
+        }
+      }
     }
-    case "ADD_ITEMS": {
+    case ADD_ITEMS: {
       const currentActivePortfolioData = state.activePortfolio.data;
 
-      let updatedObject = {
-        name: action.selectedItem,
-        value: action.count
-      }
       action.allItems.map((item, i) => {
         if (item.name === action.selectedItem) {
           action.allItems[i].count = action.allItems[i].count + parseInt(action.value);
         }
       });
-      return Object.assign({}, state, { activePortfolio: { data: Object.assign({}, currentActivePortfolioData, { itemsAvailable: action.allItems }) } });
+
+      return {
+        ...state,
+        activePortfolio: {
+          data: {
+            ...currentActivePortfolioData,
+            itemsAvailable: action.allItems
+          }
+        }
+      }
     }
   }
   return state;

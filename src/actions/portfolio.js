@@ -1,35 +1,36 @@
 import {
   FETCH_PORTFOLIO_REQUEST,
   FETCH_PORTFOLIO_SUCCESS,
-  FETCH_PORTFOLIO_FAILURE
+  FETCH_PORTFOLIO_FAILURE,
+  ADD_MONEY,
+  ADD_ITEMS
 } from '../constants/portfolioActions';
 import { portfolios } from '../mocks/portfolios';
 
-export function addAmountToCurrentAmount(value) {
+export const addAmountToCurrentAmount = (value) => {
   return (dispatch) => {
     dispatch(addAmount(value))
   }
 }
 
-export function addMoreItemsToCurrentProfile(selectedItem, value, allItems) {
+export const addMoreItemsToCurrentProfile = (selectedItem, value, allItems) => {
   return (dispatch) => {
     dispatch(addItems(selectedItem, value, allItems))
   }
 }
 
-function addItems(selectedItem, value, allItems) {
+const addItems = (selectedItem, value, allItems) => {
   return {
-    type: "ADD_ITEMS",
+    type: ADD_ITEMS,
     selectedItem,
     value,
     allItems
   }
 }
 
-
-function addAmount(value) {
+const addAmount = (value) => {
   return {
-    type: "ADD_AMOUNT",
+    type: ADD_MONEY,
     value
   }
 }
