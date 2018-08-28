@@ -79,7 +79,6 @@ export default function (state = initialState, action) {
     case ADD_MONEY: {
       const moneyAvailable = state.activePortfolio.data.moneyAvailable + parseInt(action.value);
       const currentActivePortfolioData = state.activePortfolio.data;
-      // return Object.assign({}, state, { activePortfolio: { data: Object.assign({}, currentActivePortfolioData, { moneyAvailable: moneyAvailable }) } });
 
       return {
         ...state,
