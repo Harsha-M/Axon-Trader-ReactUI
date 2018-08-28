@@ -4,7 +4,7 @@ import { connect, } from 'react-redux';
 import { Table } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { fetchPortfolioList } from '../actions/portfolio';
+import { fetchPortfolioList } from '../actions/portfolioList';
 
 class PortfolioList extends Component {
 

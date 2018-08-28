@@ -1,46 +1,50 @@
-import {
-  FETCH_PORTFOLIO_LIST_REQUEST,
-  FETCH_PORTFOLIO_LIST_SUCCESS,
-  FETCH_PORTFOLIO_LIST_FAILURE
-} from '../constants/portfolioActions';
 import { portfolios } from '../mocks/portfolios';
 
-const fetchPortfolioListRequest = () => (
-  {
-    type: FETCH_PORTFOLIO_LIST_REQUEST,
-    payload: {
-      isFetching: true
-    }
-  }
-)
 
-const fetchPortfolioListSuccess = (data) => (
-  {
-    type: FETCH_PORTFOLIO_LIST_SUCCESS,
-    payload: { 
-      portfolios: data, 
-      isFetching: false
+export function addAmountToCurrentAmount(value) {
+    return (dispatch) =>  {
+        dispatch(addAmount(value)) 
     }
-  }
-)
+}
 
-const fetchPortfolioListFailure = (error) => (
-  {
-    type: FETCH_PORTFOLIO_LIST_FAILURE,
-    payload: {
-      error,
-      isFetching: false
+export function addMoreItemsToCurrentProfile(selectedItem, value, allItems) {
+    return (dispatch) =>  {
+        dispatch(addItems(selectedItem, value, allItems)) 
     }
-  }
-)
+}
 
-export const fetchPortfolioList = () => 
+function addItems(selectedItem, value, allItems) {
+    return {
+        type: "ADD_ITEMS",
+        selectedItem,
+        value,
+        allItems
+    }
+}
+
+
+function addAmount(value) {
+    return {
+        type: "ADD_AMOUNT",
+        value
+    }
+}
+
+export const getPortfolioById = (id) =>
   (dispatch) => {
-    dispatch(fetchPortfolioListRequest());
-
-    // GET /portfolios
+    // make the ajax request here
+    // GET /companies
+    // for now, mock the process
 
     setTimeout(
-      () => dispatch(fetchPortfolioListSuccess(portfolios)
-      ), 500);
+      () => dispatch(getPortfolioSuccess(portfolios.items[id - 1])
+      ), 800);
+
+  }
+
+  function getPortfolioSuccess(data) {
+    return {
+        type: 'GET_PORTFOLIO_SUCCESS',
+        payload: { data: data, isFetching: false },
+    }
   }
