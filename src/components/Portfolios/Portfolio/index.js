@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import styles from './portfolio_detail.scss';
 import { connect } from 'react-redux';
-import { addAmountToCurrentAmount, getPortfolioById, addMoreItemsToCurrentProfile } from '../../../actions/action_select_portfolio';
+import { addAmountToCurrentAmount, getPortfolioById, addMoreItemsToCurrentProfile } from '../../../actions/portfolio';
 import { bindActionCreators } from 'redux';
 
 class Prtfolio extends Component {

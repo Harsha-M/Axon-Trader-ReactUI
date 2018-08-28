@@ -1,7 +1,10 @@
 import {
   FETCH_PORTFOLIO_LIST_REQUEST,
   FETCH_PORTFOLIO_LIST_SUCCESS,
-  FETCH_PORTFOLIO_LIST_FAILURE
+  FETCH_PORTFOLIO_LIST_FAILURE,
+  FETCH_PORTFOLIO_REQUEST,
+  FETCH_PORTFOLIO_SUCCESS,
+  FETCH_PORTFOLIO_FAILURE
 } from '../constants/portfolioActions';
 
 
@@ -12,12 +15,14 @@ const initialState = {
     isFetching: false
   },
   activePortfolio: {
-    data: {},
+    data: {
+      itemsAvailable: [],
+      transactions: []
+    },
     error: null,
     isFetching: false
   }
 }
-
 
 export default function (state = initialState, action) {
   switch (action.type) {
@@ -45,8 +50,31 @@ export default function (state = initialState, action) {
           isFetching: action.payload.isFetching
         }
       }
-    case "GET_PORTFOLIO_SUCCESS":
-      return Object.assign({}, state, { activePortfolio: { data: action.payload.data, isFetching: action.payload.isFetching } });
+    case FETCH_PORTFOLIO_REQUEST:
+      return {
+        ...state,
+        activePortfolio: {
+          isFetching: action.payload.isFetching,
+          error: null
+        }
+      }
+    case FETCH_PORTFOLIO_SUCCESS:
+      return {
+        ...state,
+        activePortfolio: {
+          isFetching: action.payload.isFetching,
+          data: action.payload.data
+        }
+      }
+    case FETCH_PORTFOLIO_FAILURE:
+      return {
+        ...state,
+        activePortfolio: {
+          isFetching: action.payload.isFetching,
+          error: action.payload.error
+        }
+      }
+
     case "PERFORM_LOGIN":
       return Object.assign({}, state, { loggedInUser: action.user });
     case "LOGIN_SUCCESS":
