@@ -1,4 +1,4 @@
-import { Portfolios } from '../mocks/portfolios';
+import { portfolios } from '../mocks/portfolios';
 
 
 export function addAmountToCurrentAmount(value) {
@@ -37,7 +37,7 @@ export const getPortfolioById = (id) =>
     // for now, mock the process
 
     setTimeout(
-      () => dispatch(getPortfolioSuccess(Portfolios.items[id - 1])
+      () => dispatch(getPortfolioSuccess(portfolios.items[id - 1])
       ), 800);
 
   }

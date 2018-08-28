@@ -4,7 +4,7 @@ import { connect, } from 'react-redux';
 import { Table } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { getPortfolios } from '../actions/action_get_portfolios';
+import { fetchPortfolioList } from '../actions/portfolio';
 
 class PortfolioList extends Component {
 
@@ -119,7 +119,7 @@ class PortfolioList extends Component {
   }
 
   componentDidMount() {
-    this.props.getPortfolios();
+    this.props.fetchPortfolioList();
   }
 
   static getDerivedStateFromProps(props) {
@@ -190,7 +190,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ getPortfolios: getPortfolios }, dispatch);
+  return bindActionCreators({ fetchPortfolioList: fetchPortfolioList }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PortfolioList);

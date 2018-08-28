@@ -1,4 +1,4 @@
-export const Portfolios = {
+export const portfolios = {
     items:  [
          {
              id: 1,
