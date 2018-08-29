@@ -9,19 +9,11 @@ class Company extends Component {
     const { isFetching, error, data } = this.props.company;
 
     if (error) {
-      return (
-        <div className="page-header">
-          <h1>Error loading page! {error.message}</h1>
-        </div>
-      );
+      return <h1 className="mt-5">Error loading page! {error.message}</h1>
     }
 
     if (isFetching) {
-      return (
-        <div className="page-header">
-          <h1>Loading...</h1>
-        </div>
-      );
+      return <h1 className="mt-5">Loading...</h1>
     }
 
     if (!this.props.company) {
@@ -30,9 +22,9 @@ class Company extends Component {
 
     return (
       <div>
-        <div className="page-header">
-          <h1>{data.name} <small>Value: {data.value} # Shares: {data.shares}</small></h1>
-        </div>
+        <h1 className="mt-5">
+          {data.name} <small>Value: {data.value} # Shares: {data.shares}</small>
+        </h1>
         <ol className="breadcrumb">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/companies">Companies</Link></li>

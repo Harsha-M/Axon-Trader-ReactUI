@@ -14,7 +14,10 @@ class DashboardContainer extends Component {
     const { dashboard } = this.props;
     return (
       <div className="container">
-        <h1>Dashboard <small>Your overview of everything you have and want to know</small></h1>
+        <h1 className="mt-5">
+          Dashboard
+          <small>Your overview of everything you have and want to know</small>
+        </h1>
         <Dashboard dashboard={dashboard} />
       </div>
     );

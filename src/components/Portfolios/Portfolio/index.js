@@ -42,10 +42,11 @@ class Prtfolio extends Component {
         }
 
         return (
-            <div className={styles.portfolioDetailContainer}>
-                <h3>Profile detail : {this.props.portfolio.data.portfolioName}</h3>
+            <div className="container">
+                <h3 className="mt-5">
+                    Profile detail : {this.props.portfolio.data.portfolioName}
+                </h3>
                 <div>Here you can add money and items to the portfolio.</div>
-
                 <div className="col-sm-6">
                     <div className={styles.content}>
                         <h3>Money</h3>

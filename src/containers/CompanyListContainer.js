@@ -13,9 +13,9 @@ class CompanyListContainer extends Component {
   render() {
     return (
       <div className="container">
-        <div className="page-header">
-          <h1>All stock items<small> Choose the stock to start trading with</small></h1>
-        </div>
+        <h1 className="mt-5">
+          All stock items<small> Choose the stock to start trading with</small>
+        </h1>
         <div>
           <CompanyList companies={this.props.companies.companyList} />
         </div>

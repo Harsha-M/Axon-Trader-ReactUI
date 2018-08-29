@@ -6,7 +6,7 @@ import createHistory from "history/createBrowserHistory";
 import { ConnectedRouter, routerMiddleware, } from "react-router-redux";
 import { Route, Switch } from 'react-router-dom';
 import NavbarContainer from '../containers/NavbarContainer';
-import Login from '../components/Login/Login';
+import LoginContainer from '../containers/LoginContainer';
 import Home from '../components/Home/Home';
 import DashboardContainer from '../containers/DashboardContainer';
 import Portfolio from '../components/Portfolios/Portfolio';
@@ -34,7 +34,7 @@ export default class App extends Component {
             <NavbarContainer />
             <Switch>
               <Route exact path='/' component={Home} />
-              <Route exact path='/login' component={Login} />
+              <Route exact path='/login' component={LoginContainer} />
               <PrivateRoute exact path="/dashboard" component={DashboardContainer} />
               <Route exact path='/companies' component={Companies} />
               <Route exact path='/companies/:id' component={CompanyContainer} />
