@@ -36,10 +36,10 @@ export default class App extends Component {
               <Route exact path='/' component={Home} />
               <Route exact path='/login' component={LoginContainer} />
               <PrivateRoute exact path="/dashboard" component={DashboardContainer} />
-              <Route exact path='/companies' component={Companies} />
-              <Route exact path='/companies/:id' component={CompanyContainer} />
-              <Route exact path='/portfolios' component={Portfolios} />
-              <Route exact path='/portfolios/:id' component={Portfolio} />
+              <PrivateRoute exact path='/companies' component={Companies} />
+              <PrivateRoute exact path='/companies/:id' component={CompanyContainer} />
+              <PrivateRoute exact path='/portfolios' component={Portfolios} />
+              <PrivateRoute exact path='/portfolios/:id' component={Portfolio} />
             </Switch>
           </div>
         </ConnectedRouter >

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { performLogin } from '../../actions/auth';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Redirect } from 'react-router-dom'
 import './styles.css';
 
 class LoginContainer extends Component {
@@ -35,6 +36,12 @@ class LoginContainer extends Component {
 
   render() {
     const { username, password, remember } = this.state;
+    const { isAuthenticated } = this.props;
+
+    if(isAuthenticated) {
+      return <Redirect to="/dashboard"/>
+    }
+
     return (
       <div className="container text-center">
         <form
@@ -84,4 +91,10 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ performLogin: performLogin }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(LoginContainer);
+function matchStateToProps(state) {
+  return {
+    isAuthenticated: state.auth.isAuthenticated,
+  };
+}
+
+export default connect(matchStateToProps, mapDispatchToProps)(LoginContainer);

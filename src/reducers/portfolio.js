@@ -77,7 +77,6 @@ export default function (state = initialState, action) {
           error: action.payload.error
         }
       }
-
     case ADD_MONEY_SUCCESS: {
       return {
         ...state,
