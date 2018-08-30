@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import styles from './portfolio_detail.scss';
 import { connect } from 'react-redux';
-import { addAmountToCurrentAmount, getPortfolioById, addMoreItemsToCurrentProfile } from '../../../actions/portfolio';
+import { addMoney, getPortfolioById, addMoreItemsToCurrentProfile } from '../../../actions/portfolio';
 import { bindActionCreators } from 'redux';
 
 class Prtfolio extends Component {
@@ -66,7 +66,7 @@ class Prtfolio extends Component {
                 <div className="col-sm-6">
                     <div className={styles.content}>
                         <input name="amount" value={amount} onChange={this.handleChange} />
-                        <button className="btn" onClick={() => this.props.addAmountToCurrentAmount(amount)}>Add Money</button>
+                        <button className="btn" onClick={() => this.props.addMoney(amount)}>Add Money</button>
                     </div>
                     <div className={styles.content}>
                         <select name="selectedItem" onChange={this.handleChange} value={selectedItem}>
@@ -102,7 +102,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ addAmountToCurrentAmount: addAmountToCurrentAmount, getPortfolioById: getPortfolioById, addMoreItemsToCurrentProfile: addMoreItemsToCurrentProfile }, dispatch);
+    return bindActionCreators({ addMoney: addMoney, getPortfolioById: getPortfolioById, addMoreItemsToCurrentProfile: addMoreItemsToCurrentProfile }, dispatch);
 }
 
 

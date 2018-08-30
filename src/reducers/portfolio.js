@@ -5,8 +5,10 @@ import {
   FETCH_PORTFOLIO_REQUEST,
   FETCH_PORTFOLIO_SUCCESS,
   FETCH_PORTFOLIO_FAILURE,
-  ADD_MONEY,
-  ADD_ITEMS
+  ADD_MONEY_SUCCESS,
+  ADD_MONEY_FAILURE,
+  ADD_ITEMS_SUCCESS,
+  ADD_ITEMS_FAILURE
 } from '../constants/portfolioActions';
 
 const initialState = {
@@ -76,29 +78,26 @@ export default function (state = initialState, action) {
         }
       }
 
-    case ADD_MONEY: {
-      const moneyAvailable = state.activePortfolio.data.moneyAvailable + parseInt(action.value);
-      const currentActivePortfolioData = state.activePortfolio.data;
-
+    case ADD_MONEY_SUCCESS: {
       return {
         ...state,
         activePortfolio : {
           data: {
-            ...currentActivePortfolioData,
-            moneyAvailable: moneyAvailable
+            ...state.activePortfolio.data,
+            moneyAvailable: action.payload.moneyAvailable
           }
         }
       }
     }
-    case ADD_ITEMS: {
+    case ADD_ITEMS_SUCCESS: {
       const currentActivePortfolioData = state.activePortfolio.data;
 
       action.allItems.map((item, i) => {
         if (item.name === action.selectedItem) {
-          action.allItems[i].count = action.allItems[i].count + parseInt(action.value);
+          action.allItems[i].count = action.allItems[i].count + action.value;
         }
       });
-
+    
       return {
         ...state,
         activePortfolio: {
@@ -109,6 +108,7 @@ export default function (state = initialState, action) {
         }
       }
     }
+    default:
+      return state;
   }
-  return state;
 }

@@ -2,14 +2,17 @@ import {
   FETCH_PORTFOLIO_REQUEST,
   FETCH_PORTFOLIO_SUCCESS,
   FETCH_PORTFOLIO_FAILURE,
-  ADD_MONEY,
-  ADD_ITEMS
+  ADD_MONEY_SUCCESS,
+  ADD_ITEMS_SUCCESS
 } from '../constants/portfolioActions';
 import { portfolios } from '../mocks/portfolios';
 
-export const addAmountToCurrentAmount = (value) => {
-  return (dispatch) => {
-    dispatch(addAmount(value))
+export const addMoney = (value) => {
+  return (dispatch, getState) => {
+    const { portfolios } = getState();
+    const newMoneyAvailable = portfolios.activePortfolio.data.moneyAvailable +
+      parseInt(value);
+    dispatch(addMoneySuccess(newMoneyAvailable));
   }
 }
 
@@ -21,17 +24,19 @@ export const addMoreItemsToCurrentProfile = (selectedItem, value, allItems) => {
 
 const addItems = (selectedItem, value, allItems) => {
   return {
-    type: ADD_ITEMS,
+    type: ADD_ITEMS_SUCCESS,
     selectedItem,
     value,
     allItems
   }
 }
 
-const addAmount = (value) => {
+const addMoneySuccess = (moneyAvailable) => {
   return {
-    type: ADD_MONEY,
-    value
+    type: ADD_MONEY_SUCCESS,
+    payload: {
+      moneyAvailable
+    }
   }
 }
 
