@@ -29,7 +29,7 @@ export default class NavbarAuth extends Component {
     if (isAuthenticated) {
       return (
         <div>
-          <span className="nav-item">
+          <span className="nav-item text-light">
             {user.firstName} {user.lastName} &nbsp;
           </span>
           <button
