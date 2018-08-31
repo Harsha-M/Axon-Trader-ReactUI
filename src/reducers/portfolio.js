@@ -19,8 +19,8 @@ const initialState = {
   },
   activePortfolio: {
     data: {
-      itemsAvailable: [],
-      transactions: []
+      itemsInPossession: [],
+      itemsReserved: []
     },
     error: null,
     isFetching: false
@@ -83,7 +83,7 @@ export default function (state = initialState, action) {
         activePortfolio : {
           data: {
             ...state.activePortfolio.data,
-            moneyAvailable: action.payload.moneyAvailable
+            amountOfMoney: action.payload.amountOfMoney
           }
         }
       }

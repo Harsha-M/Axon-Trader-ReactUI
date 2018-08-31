@@ -3,7 +3,7 @@ import {
   FETCH_PORTFOLIO_LIST_SUCCESS,
   FETCH_PORTFOLIO_LIST_FAILURE
 } from '../constants/portfolioActions';
-import { portfolios } from '../mocks/portfolios';
+import { portfoliosMock } from '../mocks/portfolios';
 
 const fetchPortfolioListRequest = () => (
   {
@@ -41,6 +41,6 @@ export const fetchPortfolioList = () =>
     // GET /portfolios
 
     setTimeout(
-      () => dispatch(fetchPortfolioListSuccess(portfolios)
+      () => dispatch(fetchPortfolioListSuccess(portfoliosMock)
       ), 500);
   }

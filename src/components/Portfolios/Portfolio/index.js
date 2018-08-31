@@ -1,109 +1,68 @@
 
 import React, { Component } from 'react';
 import styles from './portfolio_detail.scss';
-import { connect } from 'react-redux';
-import { addMoney, getPortfolioById, addMoreItemsToCurrentProfile } from '../../../actions/portfolio';
-import { bindActionCreators } from 'redux';
+import PortfolioItems from './PortfolioItems';
+import AddMoney from './AddMoney';
+import AddItems from './AddItems';
 
-class Prtfolio extends Component {
+export default class Prtfolio extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            amount: 0,
-            itemsCount: 0,
-            selectedItem: 'select',
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      amount: 0,
+      itemsCount: 0,
+      selectedItem: 'select',
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-        this.handleChange = this.handleChange.bind(this);
+  handleChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
+
+  render() {
+    const { amount, itemsCount, selectedItem } = this.state;
+
+    if (this.props.portfolio.isFetching) {
+      return <h1>Loading...</h1>;
     }
 
+    return (
+      <div className="container">
+        <h3 className="mt-5">
+          Profile detail : {this.props.portfolio.data.userName}
+        </h3>
+        <div>Here you can add money and items to the portfolio.</div>
+        <div className="col-sm-6">
+          <div className={styles.content}>
+            <h3>Money</h3>
+            <div>
+              <div className="pull-left">Available</div>
+              <div className={styles.amount}>{this.props.portfolio.data.amountOfMoney}</div>
+            </div><br />
+            <div>
+              <div className="pull-left">Reserved</div>
+              <div className={styles.amount}>{this.props.portfolio.data.reservedAmountOfMoney}</div>
+            </div><br />
+            <h3>Items In possession</h3>
+            <PortfolioItems items={this.props.portfolio.data.itemsInPossession} />
+            <h3>Reserved</h3>
+            <PortfolioItems items={this.props.portfolio.data.itemsReserved} />
+          </div>
+        </div>
+        <div className="col-sm-6">
+          <div className={styles.content}>
 
-    componentDidMount() {
-        const id = this.props.match.params.id
-        this.props.getPortfolioById(id);
-    }
 
-    handleChange(event) {
-        const { name, value } = event.target;
-        this.setState({ [name]: value });
-    }
-
-    render() {
-        const { amount, itemsCount, selectedItem } = this.state;
-
-
-        if (this.props.portfolio.isFetching) {
-            return <div className="container"><h1>Loading...</h1></div>;
-        }
-
-        if (!this.props.portfolio.data) {
-            return null;
-        }
-
-        return (
-            <div className="container">
-                <h3 className="mt-5">
-                    Profile detail : {this.props.portfolio.data.portfolioName}
-                </h3>
-                <div>Here you can add money and items to the portfolio.</div>
-                <div className="col-sm-6">
-                    <div className={styles.content}>
-                        <h3>Money</h3>
-                        <div>
-                            <div className="pull-left">Available</div>
-                            <div className={styles.amount}>{this.props.portfolio.data.moneyAvailable}</div>
-                        </div><br />
-                        <div>
-                            <div className="pull-left">Reserved</div>
-                            <div className={styles.amount}>{this.props.portfolio.data.reserved}</div>
-                        </div><br />
-                        <h3>Items In possession</h3>
-                        <div>{itemsInPossession(this.props.portfolio.data.itemsAvailable)}</div>
-                        <h3>Reserved</h3>
-                    </div>
-                </div>
-                <div className="col-sm-6">
-                    <div className={styles.content}>
-                        <input name="amount" value={amount} onChange={this.handleChange} />
-                        <button className="btn" onClick={() => this.props.addMoney(amount)}>Add Money</button>
-                    </div>
-                    <div className={styles.content}>
-                        <select name="selectedItem" onChange={this.handleChange} value={selectedItem}>
-                        <option value="select">Select</option>
-                        {
-                            this.props.portfolio.data.itemsAvailable.map(item => <option value={item.name} key={item.name}> {item.name} </option>)
-                        }
-                        </select>
-                        <input name="itemsCount"  value={itemsCount} onChange={this.handleChange} placeholder="0" />
-                        <button className="btn" disabled={selectedItem === 'select'} onClick={() => this.props.addMoreItemsToCurrentProfile(selectedItem, itemsCount, this.props.portfolio.data.itemsAvailable)}>Add Items</button>
-                    </div>
-                </div>
-            </div>
-        )
-    }
+            <AddMoney addMoney={this.props.addMoney} />
+          </div>
+          <div className={styles.content}>
+            <AddItems portfolio={this.props.portfolio} addItems={this.props.addItems} />
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
-
-function itemsInPossession(items) {
-    return items.map((item, i) => {
-        return (
-            <div key={i}>
-                <span>{item.name}</span>:
-                <span> {item.count}</span>
-            </div>
-        )
-    });
-}
-
-function mapStateToProps(state) {
-    return {
-        portfolio: state.portfolios.activePortfolio
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ addMoney: addMoney, getPortfolioById: getPortfolioById, addMoreItemsToCurrentProfile: addMoreItemsToCurrentProfile }, dispatch);
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Prtfolio);

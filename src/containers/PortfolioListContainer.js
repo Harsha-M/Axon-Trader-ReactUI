@@ -24,8 +24,8 @@ class PortfolioList extends Component {
 
       if(asc) {
         return items.sort((a, b) => {
-          var nameA = a.portfolioName.toUpperCase();
-          var nameB = b.portfolioName.toUpperCase();
+          var nameA = a.userName.toUpperCase();
+          var nameB = b.userName.toUpperCase();
           if (nameA < nameB) {
             return -1;
           }
@@ -36,8 +36,8 @@ class PortfolioList extends Component {
         });
       } else {
         return items.sort((a, b) => {
-          var nameA = a.portfolioName.toUpperCase();
-          var nameB = b.portfolioName.toUpperCase();
+          var nameA = a.userName.toUpperCase();
+          var nameB = b.userName.toUpperCase();
           if (nameA < nameB) {
             return 1;
           }
@@ -52,11 +52,11 @@ class PortfolioList extends Component {
   if(column === 'money') {
     if(asc) {
       return items.sort(function (a, b) {
-        return a.moneyAvailable - b.moneyAvailable;
+        return a.amountOfMoney - b.amountOfMoney;
       });
     } else {
       return items.sort(function (a, b) {
-        return b.moneyAvailable - a.moneyAvailable;
+        return b.amountOfMoney - a.amountOfMoney;
       });
     }
   }
@@ -67,8 +67,8 @@ class PortfolioList extends Component {
       // because formatItemsAvailable function always returns
       // first index at the begining og the string when displaying
       return items.sort((a, b) => {
-        var nameA = a.itemsAvailable[0].name.toUpperCase();
-        var nameB = b.itemsAvailable[0].name.toUpperCase();
+        var nameA = a.itemsInPossession[0].companyName.toUpperCase();
+        var nameB = b.itemsInPossession[0].companyName.toUpperCase();
         if (nameA < nameB) {
           return -1;
         }
@@ -79,8 +79,8 @@ class PortfolioList extends Component {
       });
     } else {
       return items.sort((a, b) => {
-        var nameA = a.itemsAvailable[0].name.toUpperCase();
-        var nameB = b.itemsAvailable[0].name.toUpperCase();
+        var nameA = a.itemsInPossession[0].companyName.toUpperCase();
+        var nameB = b.itemsInPossession[0].companyName.toUpperCase();
         if (nameA < nameB) {
           return 1;
         }
@@ -112,8 +112,8 @@ class PortfolioList extends Component {
     var allData = ' ';
     for (var i = 0; i < cell.length; i++) {
       var data = cell[i];
-      if (i === 0) allData += data.name;
-      else allData += ", " + data.name;
+      if (i === 0) allData += data.companyName;
+      else allData += ", " + data.companyName;
     };
     return allData;
   }
@@ -130,14 +130,14 @@ class PortfolioList extends Component {
 
   renderList() {
     const { items } = this.state;
-    return items && items.map((portfolio, i) => {
+    return items.map((portfolio, i) => {
       return (
-        <tr key={portfolio.id}>
-          <td>{portfolio.portfolioName}</td>
-          <td>{portfolio.moneyAvailable}</td>
-          <td>{this.formatItemsAvailable(portfolio.itemsAvailable)}</td>
+        <tr key={portfolio.identifier}>
+          <td>{portfolio.userName}</td>
+          <td>{portfolio.amountOfMoney}</td>
+          <td>{this.formatItemsAvailable(portfolio.itemsInPossession)}</td>
           <td>
-            <Link to={`/portfolios/${portfolio.id}`}>details</Link>
+            <Link to={`/portfolios/${portfolio.identifier}`}>details</Link>
           </td>
         </tr>
       )

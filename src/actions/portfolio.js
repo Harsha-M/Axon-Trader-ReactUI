@@ -5,37 +5,41 @@ import {
   ADD_MONEY_SUCCESS,
   ADD_ITEMS_SUCCESS
 } from '../constants/portfolioActions';
-import { portfolios } from '../mocks/portfolios';
+import { portfoliosMock } from '../mocks/portfolios';
 
 export const addMoney = (value) => {
+  console.log("Action called with value", value);
   return (dispatch, getState) => {
     const { portfolios } = getState();
-    const newMoneyAvailable = portfolios.activePortfolio.data.moneyAvailable +
+    const newAmountOfMoney = portfolios.activePortfolio.data.amountOfMoney +
       parseInt(value);
-    dispatch(addMoneySuccess(newMoneyAvailable));
+    dispatch(addMoneySuccess(newAmountOfMoney));
   }
 }
 
-export const addMoreItemsToCurrentProfile = (selectedItem, value, allItems) => {
+export const addItems = (companyName, amount) => {
   return (dispatch) => {
-    dispatch(addItems(selectedItem, value, allItems))
+    dispatch(addItemsSuccess(companyName, amount))
   }
 }
 
-const addItems = (selectedItem, value, allItems) => {
+const addItemsSuccess = (companyName, amount) => {
   return {
     type: ADD_ITEMS_SUCCESS,
-    selectedItem,
-    value,
-    allItems
+
+
+    // todo: fix add items action
+    // selectedItem,
+    // value,
+    // allItems
   }
 }
 
-const addMoneySuccess = (moneyAvailable) => {
+const addMoneySuccess = (amountOfMoney) => {
   return {
     type: ADD_MONEY_SUCCESS,
     payload: {
-      moneyAvailable
+      amountOfMoney
     }
   }
 }
@@ -78,6 +82,6 @@ export const getPortfolioById = (id) =>
     dispatch(fetchPortfolioRequest());
 
     setTimeout(
-      () => dispatch(fetchPortfolioSuccess(portfolios.items[id - 1])
+      () => dispatch(fetchPortfolioSuccess(portfoliosMock.items[id - 1])
       ), 500);
   }
