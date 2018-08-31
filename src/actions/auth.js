@@ -25,7 +25,7 @@ export function performLogin(username, password) {
   }
 }
 
-function loginRequest() {
+export function loginRequest() {
   return {
     type: AUTHENTICATION_REQUEST,
     payload: {
@@ -35,7 +35,7 @@ function loginRequest() {
   }
 }
 
-function loginSuccess(data) {
+export function loginSuccess(data) {
   return {
     type: AUTHENTICATION_SUCCESS,
     payload: {
@@ -49,7 +49,7 @@ function loginSuccess(data) {
   }
 }
 
-function loginFailure(error) {
+export function loginFailure(error) {
   return {
     type: AUTHENTICATION_FAILURE,
     payload: {
