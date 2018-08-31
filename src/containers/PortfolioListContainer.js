@@ -147,7 +147,7 @@ class PortfolioList extends Component {
   render() {
 
     if (this.props.portfolios.isFetching) {
-      return <h1> Loading </h1>
+      return <h1>Loading...</h1>
     }
 
     return (

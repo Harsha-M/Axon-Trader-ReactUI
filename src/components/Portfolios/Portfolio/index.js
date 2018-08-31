@@ -34,7 +34,7 @@ class Prtfolio extends Component {
 
 
         if (this.props.portfolio.isFetching) {
-            return <h1>Loading...</h1>;
+            return <div className="container"><h1>Loading...</h1></div>;
         }
 
         if (!this.props.portfolio.data) {
