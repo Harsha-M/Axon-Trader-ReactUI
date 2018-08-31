@@ -25,11 +25,13 @@ class Company extends Component {
         <h1 className="mt-5">
           {data.name} <small>Value: {data.value} # Shares: {data.shares}</small>
         </h1>
-        <ol className="breadcrumb">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/companies">Companies</Link></li>
-          <li className="active">{data.name}</li>
-        </ol>
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+            <li className="breadcrumb-item"><Link to="/companies">Companies</Link></li>
+            <li className="breadcrumb-item active">{data.name}</li>
+          </ol>
+        </nav>
         <div className="row">
           <div className="col-md-2">
             <button className="btn btn-primary btn-block" type="submit">Buy</button>
