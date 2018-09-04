@@ -7,7 +7,7 @@ import { ConnectedRouter, routerMiddleware, } from "react-router-redux";
 import { Route, Switch } from 'react-router-dom';
 import NavbarContainer from '../NavbarContainer';
 import LoginContainer from '../LoginContainer';
-import Home from '../../components/Home/Home';
+import Home from '../../components/Home';
 import DashboardContainer from '../DashboardContainer';
 import PortfolioContainer from '../PortfolioContainer';
 import Portfolios from '../../components/Portfolios/Portfolios';
