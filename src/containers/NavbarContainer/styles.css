@@ -11,7 +11,7 @@
 }
 
 /* customize active or hovered navbar links */
-.bg-axon .nav-item.active .nav-link,
+.bg-axon .nav-item .nav-link.active,
 .bg-axon .nav-item:hover .nav-link {
   color: #ffffff;
   border-bottom: 2px solid #ffffff; 
