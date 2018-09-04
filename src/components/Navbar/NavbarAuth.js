@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './styles.css';
 
 export default class NavbarAuth extends Component {
 
@@ -48,7 +49,7 @@ export default class NavbarAuth extends Component {
         className="form-inline my-2 my-lg-0">
         <input
           type="text"
-          className="form-control mr-sm-2"
+          className="form-control mr-sm-2 navbar-input"
           placeholder="Username"
           name="username"
           value={username}
@@ -56,7 +57,7 @@ export default class NavbarAuth extends Component {
         />
         <input
           type="password"
-          className="form-control mr-sm-2"
+          className="form-control mr-sm-2 navbar-input"
           name="password"
           placeholder="Password"
           value={password}
@@ -65,8 +66,8 @@ export default class NavbarAuth extends Component {
         <button
           type="submit"
           value="login"
-          className="btn btn-outline-success my-2 my-sm-0">
-          Login
+          className="btn btn-outline-light my-2 my-sm-0">
+          Sign in
         </button>
       </form>
     )

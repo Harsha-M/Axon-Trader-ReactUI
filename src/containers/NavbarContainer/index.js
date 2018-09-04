@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { performLogin, performLogout } from '../actions/auth';
-import NavbarAuth from '../components/Navbar/NavbarAuth';
+import { performLogin, performLogout } from '../../actions/auth';
+import NavbarAuth from '../../components/Navbar/NavbarAuth';
+import './styles.css';
 
 class NavbarContainer extends Component {
   render() {
     const { isAuthenticated, user, performLogin, performLogout } = this.props;
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-axon py-4">
         <Link className="navbar-brand" to="/">Axon Trader</Link>
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
           <li className="nav-item">

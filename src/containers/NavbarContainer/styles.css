@@ -1,0 +1,24 @@
+/* customized bootstrap navbar */
+
+.bg-axon {
+  background-color: #340976;
+}
+
+/* customize the navbar link */
+.bg-axon .navbar-nav .nav-link {
+  color: #ffffff;
+  border-bottom: 2px solid #340976;
+}
+
+/* customize active or hovered navbar links */
+.bg-axon .nav-item.active .nav-link,
+.bg-axon .nav-item:hover .nav-link {
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff; 
+}
+
+/* customize the brand */
+.bg-axon .navbar-brand,
+.bg-axon .navbar-text {
+  font-weight: bold;
+}
