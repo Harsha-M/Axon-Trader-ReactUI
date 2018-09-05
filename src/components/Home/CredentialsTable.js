@@ -13,7 +13,7 @@ const CredentialsTable = ({ credentials }) =>
           credentials.map(user => {
             return (
               <tr key={user.userName}>
-                <td>{user.userName}</td>
+                <td className="text-info">{user.userName}</td>
                 <td>{user.password}</td>
               </tr>
             )

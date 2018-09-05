@@ -1,7 +1,15 @@
 .jumbotron-axon {
     max-height: 900px;
+    background-color: #340976;
 }
 
 .table-axon {
   background-color: #ffffff;
+  border-top: none;
+  border-bottom: 8px solid #17a2b8;
+  border-radius: .25rem;
+}
+
+.table-axon th {
+  border-top: none;
 }
