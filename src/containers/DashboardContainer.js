@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Dashboard from '../components/Dashboard/Dashboard';
+import Dashboard from '../components/Dashboard';
 import * as dashboardActionCreators from '../actions/dashboard'
 
 class DashboardContainer extends Component {
