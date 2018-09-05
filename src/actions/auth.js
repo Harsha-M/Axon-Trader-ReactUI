@@ -11,8 +11,8 @@ const registeredUsers = ["buyer1", "buyer2", "buyer3", "buyer4", "buyer5", "buye
 export function performLogin(username, password) {
   return (dispatch) => {
     // TODO Service call for login
-    if (registeredUsers.indexOf(username) > -1) {
-      dispatch(loginRequest());
+    dispatch(loginRequest());
+    if (username === password && registeredUsers.indexOf(username) > -1) {
       const fakeReponseData = {
         username: username,
         email: 'johnsmith@gmail.com',
@@ -21,6 +21,8 @@ export function performLogin(username, password) {
       }
       dispatch(loginSuccess(fakeReponseData));
       dispatch(push('/dashboard'));
+    } else {
+      dispatch(loginFailure({message: 'Invalid credentials'}))
     }
   }
 }
