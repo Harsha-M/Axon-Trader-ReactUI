@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CredentialsTable = ({ credentials }) =>
-  <table className="table table-striped table-axon">
+  <table className="table table-striped table-credentials">
   <thead>
     <tr>
       <th>User</th>
