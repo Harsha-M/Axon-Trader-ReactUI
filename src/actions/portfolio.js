@@ -6,6 +6,9 @@ import {
   ADD_ITEMS_SUCCESS
 } from '../constants/portfolioActions';
 import { portfoliosMock } from '../mocks/portfolios';
+import { status, json } from '../utils/fetch';
+
+const API_ROOT = process.env.REACT_APP_API_ROOT;
 
 export const addMoney = (value) => {
   console.log("Action called with value", value);
@@ -75,13 +78,32 @@ const fetchPortfolioFailure = (error) => (
 
 export const getPortfolioById = (id) =>
   (dispatch) => {
-    // make the ajax request here
-    // GET /companies
-    // for now, mock the process
 
     dispatch(fetchPortfolioRequest());
+
+    // const options = {
+    //   method: 'GET',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    // };
+
+    // return fetch(`${API_ROOT}/query/portfolio/${id}`, options)
+    // .then(status)
+    // .then(json)
+    // .then((data) => {
+    //   // got a successfull response from the server
+    //   dispatch(fetchPortfolioSuccess(data));
+    // })
+    // .catch((error) => {
+    //   // bad response
+    //   console.log(error);
+    //   dispatch(fetchPortfolioFailure(error));
+    // });
+
 
     setTimeout(
       () => dispatch(fetchPortfolioSuccess(portfoliosMock.items[id - 1])
       ), 500);
+
   }

@@ -25,6 +25,10 @@ export default class Prtfolio extends Component {
   render() {
     const { amount, itemsCount, selectedItem } = this.state;
 
+    if(this.props.portfolio.error) {
+      return <h1>Error: {this.props.portfolio.error.message}</h1>;
+    }
+
     if (this.props.portfolio.isFetching) {
       return <h1>Loading...</h1>;
     }
