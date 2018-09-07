@@ -8,13 +8,22 @@
 
 .table-credentials {
   background-color: #ffffff;
+  border-bottom: 8px solid  #01ade5;
   border-top: none;
-  border-bottom: 8px solid #17a2b8;
-  border-radius: .25rem;
+  border-radius: 5px;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0px;
 }
 
 .table-credentials th {
+  background-color: #f6f6f6;
   border-top: none;
+  border-radius: 5px;
 }
 
 .homepage-heading {
@@ -34,6 +43,12 @@
   line-height: normal;
   letter-spacing: 0px;
   color: #ffffff;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.text-info-axon {
+  color: #01ade5;
 }
 
 .text-info-homepage {
@@ -65,9 +80,6 @@
   letter-spacing: normal;
   color: #ffffff;
 }
-
-
-
 
 .btn-dashboard {
   font-family: Montserrat, Arial, Helvetica, sans-serif;

@@ -20,10 +20,9 @@ class Home extends Component {
           <div className="row">
             <div className="col-md-6">
               <Header />
-              <h4 className="text-white mt-5 mb-3">Available Credentials</h4>
               <CredentialsTable credentials={credentials} />
             </div>
-            <div className="col-md-6 text-right">
+            <div className="col-md-6 text-right pt-5">
               <SideBar />
             </div>
           </div>
