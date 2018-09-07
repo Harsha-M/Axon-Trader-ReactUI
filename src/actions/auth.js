@@ -5,25 +5,37 @@ import {
   AUTHENTICATION_FAILURE,
   PERFORM_LOGOUT
 } from '../constants/authActions';
+import { status, json } from '../utils/fetch';
+
 
 const registeredUsers = ["buyer1", "buyer2", "buyer3", "buyer4", "buyer5", "buyer6"];
+const API_ROOT = process.env.REACT_APP_API_ROOT;
 
 export function performLogin(username, password) {
   return (dispatch) => {
     // TODO Service call for login
     dispatch(loginRequest());
-    if (username === password && registeredUsers.indexOf(username) > -1) {
-      const fakeReponseData = {
-        username: username,
-        email: 'johnsmith@gmail.com',
-        firstName: 'John',
-        lastName: 'Smith',
-      }
-      dispatch(loginSuccess(fakeReponseData));
+
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    return fetch(`${API_ROOT}/query/user/by-name/${username}`, options)
+    .then(status)
+    .then(json)
+    .then((data) => {
+      // got a successfull response from the server
+      dispatch(loginSuccess(data));
       dispatch(push('/dashboard'));
-    } else {
-      dispatch(loginFailure({message: 'Invalid credentials'}))
-    }
+    })
+    .catch((error) => {
+      // bad response
+      console.log(error);
+      dispatch(loginFailure({message: 'Invalid Credentials'}));
+    });
   }
 }
 
@@ -43,10 +55,10 @@ export function loginSuccess(data) {
     payload: {
       isFetching: false,
       isAuthenticated: true,
-      email: data.email,
+      name: data.name,
       username: data.username,
-      firstName: data.firstName,
-      lastName: data.lastName
+      fullName: data.fullName,
+      userId: data.userId,
     }
   }
 }

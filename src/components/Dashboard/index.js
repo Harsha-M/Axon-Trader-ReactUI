@@ -21,8 +21,8 @@ export default class Dashboard extends Component {
                 <Portfolio
                   title="Portfolio"
                   description="Here you see what you have and what is reserved."
-                  moneyAvailable={data.money.available}
-                  reserved={data.money.reserved}
+                  moneyAvailable={data.amountOfMoney}
+                  reserved={data.reservedAmountOfMoney}
                 />
               </div>
             </div>
@@ -30,17 +30,17 @@ export default class Dashboard extends Component {
           <div className="col-md-6">
             <TradeItemsContainer>
               <TradeItemsTable
-                items={data.tradeItems}
+                items={data.itemsInPossession}
                 tableName="Trade items"
               />
               <TradeItemsTable
-                items={data.tradeItemsReserved}
+                items={data.itemsReserved}
                 tableName="Trade items reserved"
               />
             </TradeItemsContainer>
           </div>
         </div>
-        <div className="row">
+        {/* <div className="row">
           <div className="col-md-12">
             <Transactions
               transactions={data.transactions}
@@ -48,7 +48,7 @@ export default class Dashboard extends Component {
               description="Here you see what you have and what is reserved"
             />
           </div>
-        </div>
+        </div> */}
       </div>
     )
   }

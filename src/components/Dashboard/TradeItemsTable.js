@@ -12,16 +12,14 @@ const TradeItemsTable = ({ items, tableName }) => {
           </tr>
         </thead>
         <tbody>
-          {
-            items.map(item => {
-              return (
-                <tr key={item.name}>
-                  <td> {item.name}</td>
-                  <td> {item.amount}</td>
+        {
+            Object.keys(items).map((key, index) => ( 
+                <tr key={key}>
+                  <td> {items[key].companyName}</td>
+                  <td> {items[key].amount}</td>
                 </tr>
-              );
-            })
-          }
+            ))
+        }
         </tbody>
       </table>
     </div>

@@ -8,10 +8,11 @@ const initialState = {
   isFetching: false,
   error: null,
   data: {
-    money: {},
-    tradeItems: [],
-    tradeItemsReserved: [],
-    transactions: []
+    amountOfMoney: 0,
+    reservedAmountOfMoney: 0,
+    itemsInPossession: {},
+    itemsReserved: {},
+    transactions: {}
   }
 }
 

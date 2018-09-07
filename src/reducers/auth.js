@@ -26,10 +26,10 @@ export default function (state = initialState, action) {
         isFetching: action.payload.isFetching,
         isAuthenticated: action.payload.isAuthenticated,
         user: {
-          email: action.payload.email,
+          name: action.payload.name,
           username: action.payload.username,
-          firstName: action.payload.firstName,
-          lastName: action.payload.lastName
+          fullName: action.payload.fullName,
+          userId: action.payload.userId,
         }
       }
     case AUTHENTICATION_FAILURE:
