@@ -8,7 +8,7 @@ import './styles.css';
 
 class NavbarContainer extends Component {
   render() {
-    const { isAuthenticated, user, performLogin, performLogout } = this.props;
+    const { isAuthenticated, user } = this.props;
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-axon py-4">
         <div className="container">
@@ -27,12 +27,13 @@ class NavbarContainer extends Component {
               <Link className="nav-link" to="/portfolios">PORTFOLIO</Link>
             </li>
           </ul>
-          <NavbarAuth
-            isAuthenticated={isAuthenticated}
-            performLogin={performLogin}
-            performLogout={performLogout}
-            user={user}
-          />
+            {
+              isAuthenticated ?
+                <span className="nav-item">
+                {user.firstName} {user.lastName} &nbsp;
+                </span> : null
+            }
+
         </div>  
       </nav>
     )
