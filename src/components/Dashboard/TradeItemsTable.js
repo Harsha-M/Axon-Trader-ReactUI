@@ -2,10 +2,10 @@ import React from 'react';
 
 const TradeItemsTable = ({ items, tableName }) => {
   return (
-    <div>
-      <h4 className="mt-5 text-white">{tableName}</h4>
-      <table className="table table-bordered">
-        <thead className="thead-light">
+    <div className="text-dashboard">
+      <h4 className="dashboard-title mt-5 mb-3 text-white">{tableName}</h4>
+      <table className="table table-trade-items">
+        <thead>
           <tr>
             <th>Name</th>
             <th>Amount</th>

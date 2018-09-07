@@ -3,8 +3,8 @@ import React from 'react';
 const Portfolio = (props) => {
   return (
     <div>
-      <h4>{props.title}</h4>
-      <p>{props.description}</p>
+      <h3 className="dashboard-title mt-5">{props.title}</h3>
+      <p className="text-dashboard">{props.description}</p>
       <table className="table table-bordered">
         <thead className="thead-light">
           <tr>
