@@ -31,7 +31,7 @@ export default class NavbarAuth extends Component {
       return (
         <div>
           <span className="nav-item text-light">
-            {user.firstName} {user.lastName} &nbsp;
+            {user.fullName} &nbsp;
           </span>
           <button
             onClick={performLogout}

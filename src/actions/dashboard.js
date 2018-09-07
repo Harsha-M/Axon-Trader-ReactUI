@@ -3,6 +3,9 @@ import {
   FETCH_DASHBOARD_SUCCESS,
   FETCH_DASHBOARD_FAILURE,
 } from '../constants/dashboardActions';
+import { status, json } from '../utils/fetch';
+
+const API_ROOT = process.env.REACT_APP_API_ROOT;
 
 const fetchDashboardRequest = () => (
   {
@@ -33,70 +36,28 @@ const fetchDashboardFailure = (error) => (
   }
 )
 
-export const fetchDashboard = () =>
-  (dispatch, getState) => {
+export const getPortfolioByUserId = (userId) =>
+  (dispatch) => {
 
-    let { auth } = getState();
+    dispatch(fetchDashboardRequest);
 
-    const fakeResponseBody = {
-      data: {
-        money: {
-          available: 10000,
-          reserved: 720
-        },
-        tradeItems: [
-          {
-            name: 'Shell',
-            amount: 20
-          },
-          {
-            name: 'BP',
-            amount: 20
-          },
-          {
-            name: 'Apple',
-            amount: 10
-          }
-        ],
-        tradeItemsReserved: [
-          {
-            name: 'Shell',
-            amount: 20
-          },
-          {
-            name: 'BP',
-            amount: 20
-          },
-          {
-            name: 'Apple',
-            amount: 10
-          }
-        ],
-        transactions: [
-          {
-            company: 'Shell',
-            type: 'BUY',
-            itemsCount: 10,
-            price: 40,
-            executedCount: 0,
-            state: 'CONFIRMED'
-          },
-          {
-            company: 'BP',
-            type: 'SELL',
-            itemsCount: 20,
-            price: 10,
-            executedCount: 30,
-            state: 'SELL'
-          }
-        ]
-      }
-    }
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
 
-    // GET /users/{auth.user.id}/dashboard
-    dispatch(fetchDashboardRequest());
-    setTimeout(
-      () => dispatch(fetchDashboardSuccess(fakeResponseBody.data)
-      ), 800);
-
+    return fetch(`${API_ROOT}/query/portfolio/by-user/${userId}`, options)
+    .then(status)
+    .then(json)
+    .then((data) => {
+      // got a successfull response from the server
+      dispatch(fetchDashboardSuccess(data));
+    })
+    .catch((error) => {
+      // bad response
+      console.log("Get Portfolio By User Id Error", error);
+      dispatch(fetchDashboardFailure(error));
+    });
   }
