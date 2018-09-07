@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import homeImg from './img/home.png';
 import CredentialsTable from './CredentialsTable';
 import credentials from './credentials';
 import './styles.css';
@@ -12,13 +10,10 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="jumbotron jumbotron-axon">
+      <div className="axon-homepage">
         <div className="container">
           <div className="row">
-            <div className="col-md-6">
-              <img src={homeImg} className="img-fluid" alt="axon trader image" />
-            </div>
-            <div className="col-md-6 text-right">
+            <div className="offset-md-6 col-md-6 text-right">
               <Banner />
             </div>
           </div>

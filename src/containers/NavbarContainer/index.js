@@ -11,27 +11,29 @@ class NavbarContainer extends Component {
     const { isAuthenticated, user, performLogin, performLogout } = this.props;
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-axon py-4">
-        <Link className="navbar-brand" to="/">Axon Trader</Link>
-        <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li className="nav-item">
-            <Link className="nav-link" to="/">HOME</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/dashboard">DASHBOARD</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/companies">COMPANIES</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/portfolios">PORTFOLIO</Link>
-          </li>
-        </ul>
-        <NavbarAuth
-          isAuthenticated={isAuthenticated}
-          performLogin={performLogin}
-          performLogout={performLogout}
-          user={user} 
-        />
+        <div className="container">
+          <Link className="navbar-brand" to="/">Axon Trader</Link>
+          <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li className="nav-item">
+              <Link className="nav-link" to="/">HOME</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/dashboard">DASHBOARD</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/companies">COMPANIES</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/portfolios">PORTFOLIO</Link>
+            </li>
+          </ul>
+          <NavbarAuth
+            isAuthenticated={isAuthenticated}
+            performLogin={performLogin}
+            performLogout={performLogout}
+            user={user}
+          />
+        </div>  
       </nav>
     )
   }
